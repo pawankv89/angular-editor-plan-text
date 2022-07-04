@@ -1,0 +1,104 @@
+<form [formGroup]="formGroup">
+  <h1>Multi-Select Dropdown using Angular 11/10</h1>
+
+  <div class="col-6" style="width: 250px;">
+    <div class="form-group">
+      <label for="scheduledtime">Insert Cars</label>
+      <ng-select #insertdatafieldlistBlur (change)="insertdatafieldlistBlur.blur()" id="insertdatafield" [items]="cars"
+        bindLabel="name" bindValue="value" placeholder="Select cars" appendTo="body" [multiple]="false"
+        [(ngModel)]="selected" (ngModelChange)="insertDataFieldSelect($event)" (clear)="clearInsertDataField()"
+        formControlName="insertField" [selectOnTab]="true" [clearable]="true">
+      </ng-select>
+    </div>
+  </div>
+</form>
+
+<button (click)='buttonClickMe()'>CLICK ME</button>
+
+<hr />
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <title>How to add text to textarea when user clicks a button</title>
+</head>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+
+<script>
+  /*
+// The javascript code goes here...
+var position;
+	
+    function getCaretPosition() {
+        var ctlTextArea = document.getElementById('textArea');
+        position = ctlTextArea.selectionStart;
+        return position;
+    }
+	
+	// Needs JQuery 
+    $(document).ready(function () {
+
+        jQuery.fn.extend({
+            insertAtCaret: function (myValue) {
+                return this.each(function (i) {
+                    if (document.selection) {
+                        //For browsers like Internet Explorer
+                        this.focus();
+                        sel = document.selection.createRange();
+                        sel.text = myValue;
+                        this.focus();
+                    }
+                    else if (this.selectionStart || this.selectionStart == '0') {
+                        //For browsers like Firefox and Webkit based
+                        var startPos = this.selectionStart;
+                        var endPos = this.selectionEnd;
+                        var scrollTop = this.scrollTop;
+                        this.value = this.value.substring(0, startPos) + myValue + this.value.substring(endPos, this.value.length);
+                        this.focus();
+                        this.selectionStart = startPos + myValue.length;
+                        this.selectionEnd = startPos + myValue.length;
+                        this.scrollTop = scrollTop;
+                    } else {
+                        this.value += myValue;
+                        this.focus();
+                    }
+                })
+            }
+        });
+
+        $('#btnTest').click(function () {
+            $("#textArea").insertAtCaret(' << inserted text! >> ');
+        });
+
+    });*/
+</script>
+
+<body>
+  <h1>How to add text to textarea when user clicks a button</h1>
+  <div id="divDroppedFields">
+    <textarea id="textArea" name="txtMessageFields" formControlName="textArea" class="required" cols="80" rows="10" (click)="getCaretPosition($event)"
+      (keyup)="getCaretPosition($event)">
+	In the meantime the cat slowly recovered. The socket of the lost eye presented, it is true, a frightful appearance, but he no longer appeared to suffer any pain.
+	</textarea>
+  </div>
+  <button id="btnTest" (click)="buttonClick()">CLICK ME</button>
+  <!-- <button id="btnTest" (click)="textareaSelectByButtonClick()">CLICK ME</button> -->
+</body>
+
+</html>
+
+<!-- <script>
+  function input(){
+      var text = "here the text that you want to input.";
+      document.forms.form1.area.value = text;
+  }    
+  </script>
+  <form name='form1'>
+      Click<input onclick='input()' type='button' value='BUTTON' id='button'><br>
+      <textarea name='area'></textarea>
+  
+  </form> -->
